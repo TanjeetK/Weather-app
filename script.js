@@ -23,6 +23,9 @@ unitToggle.addEventListener('click', () => {
     unitToggle.textContent = units === 'metric' ? '°F' : '°C';
     localStorage.setItem('weatherUnits', units);
     
+    let changeTemp = document.querySelector('.temp');
+    let currentUnit = changeTemp.textContent.slice(-1); // get last character (°C or °F)
+
     if (currentUnit === 'C') {
         changeTemp.textContent = changeTemp.textContent.replace('°C', '°F');
     } else if (currentUnit === 'F') {
