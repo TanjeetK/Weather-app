@@ -1,53 +1,43 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
-
-*{
-    padding:0;
-    margin:0;
-    font-family:"Poppins", sans-serif;
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
-
 body {
     background: #222;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden; 
+    min-height: 100vh;
+    overflow: hidden;
 }
-
-
-.card{
-    height:auto;
-    width:400px;
-    max-width:90%;
-    /* background: linear-gradient(130deg, #d197b3, #5d5596);change */
+.card {
+    width: 400px;
+    max-width: 90%;
     background: rgba(118, 103, 103, 0.3);
     backdrop-filter: blur(30px);
     color: #fff;
-    margin:50px auto 50px;
+    margin: 50px auto;
     border-radius: 20px;
-    padding:40px 35px;
+    padding: 40px 35px;
     text-align: center;
-    box-sizing: border-box;
 }
-
-
 .searchbar {
     position: relative;
     width: 100%;
-    max-width: 400px;
     margin: 15px auto;
-}
-
+    }
 .searchbar input {
     width: 100%;
-    padding: 12px 50px 12px 16px; 
+    height: 50px;
+    padding: 12px 50px 12px 16px;
     border-radius: 25px;
     border: none;
     font-size: 16px;
-    box-sizing: border-box;
+    outline: none;
 }
-
 .searchbar button {
     position: absolute;
     right: 8px;
@@ -64,138 +54,141 @@ body {
     cursor: pointer;
     padding: 6px;
 }
-
 .searchbar button img {
     width: 18px;
     height: 18px;
     object-fit: contain;
-}
-
-
-.weather-icon{
-    width:100px;
+    }
+.weather-icon {
+    width: 100px;
     margin-top: 20px;
+    }
+.sub-weather-icon {
+    width: 40px;
+    margin-right: 10px;
 }
-
-.sub-weather-icon{
-    width:40px;
-    margin-right:10px;
-}
-
-.weather h1{
-    font-size: clamp(2rem, 6vw, 3.5rem); 
+.weather h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 500;
     margin-top: -10px;
 }
-
-.details{
-    display:flex;
+.details {
+    display: flex;
     align-items: center;
-    padding:0 20px;
-    margin-top:50px;
-    gap:20px;
+    justify-content: center;
+    padding: 0 20px;
+    margin-top: 50px;
+    gap: 20px;
 }
-
-.col{
-    display:flex;
+.col {
+    display: flex;
     text-align: left;
     align-items: center;
     margin-bottom: 20px;
-}
-
-.humidity, .wind{
+    }
+.humidity, .wind {
     font-size: 20px;
-    margin-top:  -6px;
-}
-
+    margin-top: -6px;
+    }
 #background-video {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+    }
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    }
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-
+.error-message {
+    color: #ff5757;
+    margin: 10px 0;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: rgba(255, 87, 87, 0.1);
+    font-size: 14px;
+}
 @media (max-width: 768px) {
     .card {
-        width: 90%;
-        height: auto;
-        padding: 15px;
+    width: 90%;
+    padding: 30px 25px;
     }
-    
-    .weather.temp {
+    .weather h1 {
         font-size: 48px;
-        margin: 20px 0 6px 0;
-    }
-    
-    .details img {
-        font-size: 32px;
+        margin: 20px 0 6px 0; }
+
+    .details {
+        justify-content: center;
     } 
-    
-    .details p{
-        font-size: 18px;
-    }
-    
-    .searchbar input {
-        font-size: 18px;
-    }
-    
-    .search-box button img{
-        font-size: 24px;
-        width: 24px;
-        height: 24px;
-    }
 }
-
 @media (max-width: 480px) {
-    .card  {
+    .card {
         width: 95%;
-        padding: 10px;
+        padding: 25px 20px;
+            margin: 30px auto;
+        }
+        .searchbar input {
+        height: 45px;
+        font-size: 14px;
+        padding: 12px 45px 12px 15px;
     }
-
-    .weather .temp {
+    .searchbar button {
+        width: 32px;
+        height: 32px;
+        right: 6px;
+    }
+    .searchbar button img {
+        width: 16px;
+        height: 16px;
+    }
+    .weather h1 {
         font-size: 36px;
-        margin: 10px 0 6px 0;
     }
-
-    .weather .city {
-        font-size: 18px;
+    .weather h2 {
+        font-size: 20px;
     }
-    
     .details {
         flex-direction: column;
         align-items: center;
+        margin-top: 30px;
+        gap: 10px;
     }
-    
-    .details .col{
-        width:100%;
+    .col {
+        width: 100%;
         justify-content: center;
     }
+    .humidity, .wind {
+        font-size: 18px;
+    }
+}
+.unit-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 8px 16px;
+    background-color: #b1908d;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(11, 3, 3, 0.2);
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
 
-    .details img {
-        font-size: 28px;
-    } 
-    
-    .details .col1, .details .col2 {
-        font-size: 16px;
-    }
-    .searchbar{
-        height: 45px;
-    } 
-    .searchbar input {
-        font-size: 16px;
-        padding:0 38px 0 32px; 
-    }
-    
-    .searchbar button {
-        font-size: 20px;
-        padding: 0 20px 0 5px;
-    }
-    .searchbar button img {
-        width: 20px;
-        height: 20px;
-    }
+.unit-toggle:hover {
+    background-color: #331e1e;
 }
